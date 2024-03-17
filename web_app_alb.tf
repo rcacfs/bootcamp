@@ -3,7 +3,7 @@ resource "aws_lb" "web_alb" {
   internal                   = false
   load_balancer_type         = "application"
   security_groups            = [aws_security_group.web-elb-security-group.id]
-  subnets                    = [aws_subnet.elb-web-public-a.id, aws_subnet.elb-web-public-b.id]
+  subnets                    = [aws_subnet.public-a.id, aws_subnet.bastion-public-a.id]
   enable_http2               = true
   enable_deletion_protection = false
 

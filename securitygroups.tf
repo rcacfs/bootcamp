@@ -33,9 +33,9 @@ resource "aws_security_group" "web-elb-security-group" {
   }
 }
 
-resource "aws_security_group" "web-security-group" {
-  name        = "bootcamp-web-private-security-group"
-  description = "Allowing Web Traffic"
+resource "aws_security_group" "web-app-security-group" {
+  name        = "bootcamp-web-app-private-security-group"
+  description = "Allowing Web and App Traffic"
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
@@ -81,11 +81,11 @@ resource "aws_security_group" "db_security_group" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    from_port       = 5432
-    to_port         = 5432
+    from_port       = 3306
+    to_port         = 3306
     protocol        = "tcp"
     security_groups = ["${aws_security_group.web-security-group.id}"]
-    description     = "Allowing port 5432 Inbound"
+    description     = "Allowing port 3306 Inbound"
   }
 
   egress {
