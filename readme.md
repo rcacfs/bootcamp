@@ -30,7 +30,40 @@ you can keep the default cidr block range or change it.
  This file contains some services that we will use in the infrastructure. \
  It contains the load balancer variables, and database variables
 
+- On networkingtags.tf edit the values
+
 - Starting from the networking services, navigate to vpc.tf \
 edit the file with your own values and cidr range.
 
-- 
+- On subnets.tf file, edit the available subnets and you can add other subnets depending with the kind of architecture you have.
+
+##### Security on the subnet level
+- navigate to nacls.tf file. On this file you can edit the ingress and egress rules of each subnet.\
+ Allow traffic in and out of each subnet.
+
+##### Route table association
+- navigate to route_tables.tf file, for each subnet make associations. \
+NOTE the difference between public and private subnets.
+
+##### App and Web Servers
+- navigate to web_app.tf. In this file you will find three servers, \
+```
+bastion server
+web server
+app server
+```
+
+you can add more servers using your own values.
+
+##### PostgreSQL Database
+- navigate to postgresql.tf, edit the database values with your own
+
+##### Application Load Balancer
+- navigate to web_app_alb.tf, create an application load balancer with listeners and target groups
+
+##### Servers and Database Security
+- navigate to securitygroups.tf, create a security group for each server and the database.
+
+
+
+
