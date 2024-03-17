@@ -81,11 +81,11 @@ resource "aws_security_group" "db_security_group" {
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    from_port       = 3306
-    to_port         = 3306
+    from_port       = 5432
+    to_port         = 5432
     protocol        = "tcp"
     security_groups = ["${aws_security_group.web-security-group.id}"]
-    description     = "Allowing port 3306 Inbound"
+    description     = "Allowing port 5432 Inbound"
   }
 
   egress {

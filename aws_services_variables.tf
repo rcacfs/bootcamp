@@ -11,7 +11,7 @@ variable "allow_major_version_upgrade" {
 variable "engine_name" {
   description = "database name"
   type        = string
-  default     = "mysql"
+  default     = "postgres"
 }
 
 variable "engine_version" {
@@ -30,7 +30,7 @@ variable "name" {
 variable "port" {
   description = "database port"
   type        = number
-  default     = 3306
+  default     = 5432
 }
 
 variable "username" {
