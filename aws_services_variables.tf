@@ -35,7 +35,7 @@ variable "port" {
 
 variable "username" {
   description = "master username"
-  default     = "admin"
+  default     = "root"
   type        = string
 }
 
