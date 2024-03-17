@@ -1,9 +1,9 @@
-# # Elastic Load Balancer
+// Elastic Load Balancer
 variable "alb_name" {
   default = "bootcamp-prod"
 }
 
-//database 
+// database 
 variable "allow_major_version_upgrade" {
   default = true
 }
@@ -11,7 +11,7 @@ variable "allow_major_version_upgrade" {
 variable "engine_name" {
   description = "database name"
   type        = string
-  default     = "postgres"
+  default     = "mysql"
 }
 
 variable "engine_version" {
@@ -30,19 +30,19 @@ variable "name" {
 variable "port" {
   description = "database port"
   type        = number
-  default     = 5432
+  default     = 3306
 }
 
 variable "username" {
   description = "master username"
-  default     = "postgres"
+  default     = "admin"
   type        = string
 }
 
 
 variable "database_name" {
   description = "database name"
-  default     = null
+  default     = "bootcamp-database"
   type        = string
 }
 
