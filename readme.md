@@ -26,8 +26,11 @@ but this is just a part of a cidr block, this defines how all you cidr blocks wi
 In the case above, they will all have the 10.0 at the beginning. \
 you can keep the default cidr block range or change it.
 
-- Navigate into aws_services_variables.tf.\
+- Navigate to aws_services_variables.tf.\
  This file contains some services that we will use in the infrastructure. \
  It contains the load balancer variables, and database variables
+
+- Starting from the networking services, navigate to vpc.tf \
+edit the file with your own values and cidr range.
 
 - 

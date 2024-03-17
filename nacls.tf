@@ -28,7 +28,7 @@ resource "aws_network_acl" "nacl_public" {
   }
 }
 
-resource "aws_network_acl" "elb_web_public_nacl" {
+resource "aws_network_acl" "web_private_nacl" {
   vpc_id = aws_vpc.vpc.id
 
   egress {
@@ -50,42 +50,43 @@ resource "aws_network_acl" "elb_web_public_nacl" {
   }
 
   subnet_ids = [
-    aws_subnet.elb-web-public-a.id,
-    aws_subnet.elb-web-public-b.id
-  ]
-
-  tags = {
-    Name = "bootcamp-elb-web-public-nacl"
-  }
-}
-
-resource "aws_network_acl" "web_app_private_nacl" {
-  vpc_id = aws_vpc.vpc.id
-
-  egress {
-    protocol   = "-1"
-    rule_no    = 100
-    action     = "allow"
-    cidr_block = "0.0.0.0/0"
-    from_port  = 0
-    to_port    = 0
-  }
-
-  ingress {
-    protocol   = "-1"
-    rule_no    = 100
-    action     = "allow"
-    cidr_block = "0.0.0.0/0"
-    from_port  = 0
-    to_port    = 0
-  }
-
-  subnet_ids = [
-    aws_subnet.web-private-a.id
+    aws_subnet.web-private-a.id,
+    aws_subnet.web-private-b.id,
   ]
 
   tags = {
     Name = "bootcamp-web-private-nacl"
+  }
+}
+
+resource "aws_network_acl" "app_private_nacl" {
+  vpc_id = aws_vpc.vpc.id
+
+  egress {
+    protocol   = "-1"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 0
+  }
+
+  ingress {
+    protocol   = "-1"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 0
+  }
+
+  subnet_ids = [
+    aws_subnet.app-private-a.id,
+    aws_subnet.app-private-b.id,
+  ]
+
+  tags = {
+    Name = "bootcamp-app-private-nacl"
   }
 }
 
