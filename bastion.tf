@@ -26,8 +26,6 @@ resource "aws_instance" "bastion-server" {
 
 resource "aws_eip" "eip-bastion-server" {
   instance = aws_instance.bastion-server.id
-  vpc      = true
-
   tags = {
     Name = "bastion-server-eip"
   }

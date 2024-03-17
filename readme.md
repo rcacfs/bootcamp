@@ -59,12 +59,12 @@ NOTE the difference between public and private subnets.
 - navigate to aws_roles.tf, define roles and attach policies in the file.
 
 ##### App and Web Servers
-- navigate to web_app.tf. In this file you will find three servers, \
+- navigate to web_app.tf. In this file you will find two servers, \
 ```
-bastion server
 web server
 app server
 ```
+- find the bastion server on bastion.tf file
 
 you can add more servers using your own values.
 
@@ -78,5 +78,10 @@ you can add more servers using your own values.
 - navigate to securitygroups.tf, create a security group for each server and the database.
 
 
-
+##### Deploy services
+```
+terraform init
+terraform plan
+terraform apply
+```
 
