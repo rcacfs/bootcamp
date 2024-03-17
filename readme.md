@@ -11,6 +11,11 @@
 
 ``` cd bootcamp ```
 
+##### Terraform Hashicorp Configurations
+- On the provider.tf file, define the version of terraform you would like to use.
+Note: Get the terraform version from hashicorp website. (https://releases.hashicorp.com/terraform-provider-aws/)
+
+##### Define Variables
 - Go to general_variables.tf file, edit the region to your liking
 Example regions are as shown below:
 ```
@@ -32,10 +37,15 @@ you can keep the default cidr block range or change it.
 
 - On networkingtags.tf edit the values
 
+##### vpc, subnets, internet gateway, NAT gateway
 - Starting from the networking services, navigate to vpc.tf \
 edit the file with your own values and cidr range.
 
 - On subnets.tf file, edit the available subnets and you can add other subnets depending with the kind of architecture you have.
+
+- On network.tf you will see the internet and nat gateways configurations. \
+The elastic ip will be used by the nat gateway. \
+Edit the configurations with your own values.
 
 ##### Security on the subnet level
 - navigate to nacls.tf file. On this file you can edit the ingress and egress rules of each subnet.\
@@ -44,6 +54,9 @@ edit the file with your own values and cidr range.
 ##### Route table association
 - navigate to route_tables.tf file, for each subnet make associations. \
 NOTE the difference between public and private subnets.
+
+##### AWS Roles
+- navigate to aws_roles.tf, define roles and attach policies in the file.
 
 ##### App and Web Servers
 - navigate to web_app.tf. In this file you will find three servers, \
