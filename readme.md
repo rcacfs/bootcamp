@@ -83,5 +83,6 @@ you can add more servers using your own values.
 terraform init
 terraform plan
 terraform apply
+terraform destroy
 ```
 

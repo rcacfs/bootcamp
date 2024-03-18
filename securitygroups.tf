@@ -1,4 +1,4 @@
-
+// Security group for the load balancer
 resource "aws_security_group" "web-elb-security-group" {
   name        = "bootcamp-web-elb-public-security-group"
   description = "Allowing Web Traffic"
@@ -33,6 +33,7 @@ resource "aws_security_group" "web-elb-security-group" {
   }
 }
 
+// web and application servers security groups
 resource "aws_security_group" "web-app-security-group" {
   name        = "bootcamp-web-app-private-security-group"
   description = "Allowing Web and App Traffic"
@@ -75,6 +76,7 @@ resource "aws_security_group" "web-app-security-group" {
   }
 }
 
+// database security group
 resource "aws_security_group" "db_security_group" {
   name        = "bootcamp-db-private-security-group"
   description = "Allowing db access"
@@ -101,6 +103,7 @@ resource "aws_security_group" "db_security_group" {
   }
 }
 
+// bastion host security group
 resource "aws_security_group" "bastion-security-group" {
   name        = "bootcamp-bastion-public-security-group"
   description = "Allowing Inbound Traffic"

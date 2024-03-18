@@ -74,7 +74,7 @@ resource "aws_subnet" "db-private-b" {
 resource "aws_subnet" "bastion-public-a" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = "${var.vpc_cidr}.7.0/24"
-  map_public_ip_on_launch = "false"
+  map_public_ip_on_launch = "true"
   availability_zone       = "${var.aws_region}b"
   tags = {
     Name = "bootcamp-bastion-public-subnetA"

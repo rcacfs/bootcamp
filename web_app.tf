@@ -1,5 +1,5 @@
 resource "aws_instance" "web-server" {
-  ami                    = "ami-0c7217cdde317cfec"
+  ami                    = "ami-0b8b44ec9a8f90422"
   instance_type          = "t3.micro"
   key_name               = "web-server-bastion"
   subnet_id              = aws_subnet.web-private-a.id
@@ -20,7 +20,7 @@ resource "aws_instance" "web-server" {
 }
 
 resource "aws_instance" "app-server" {
-  ami                    = "ami-0c7217cdde317cfec"
+  ami                    = "ami-0b8b44ec9a8f90422"
   instance_type          = "t3.micro"
   key_name               = "web-server-bastion"
   subnet_id              = aws_subnet.app-private-a.id
